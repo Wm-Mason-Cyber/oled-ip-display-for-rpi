@@ -59,11 +59,10 @@ echo "Also fix connection of screen"
 # Clone repository if not already present
 if [ ! -d "oled-tests" ]; then
     echo "Cloning OLED test repository..."
-    git clone https://github.com/rubedo47/oled-tests
-fi
+    git clone https://github.com/Wm-Mason-Cyber/oled-ip-display-for-rpi
 
 echo "Entering project directory..."
-cd oled-tests
+cd oled-ip-display-for-rpi
 
 echo ""
 echo "Setup complete."
