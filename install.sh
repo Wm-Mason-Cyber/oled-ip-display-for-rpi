@@ -60,7 +60,7 @@ echo "Also fix connection of screen"
 if [ ! -d "oled-tests" ]; then
     echo "Cloning OLED test repository..."
     git clone https://github.com/Wm-Mason-Cyber/oled-ip-display-for-rpi
-
+fi
 echo "Entering project directory..."
 cd oled-ip-display-for-rpi
 
@@ -74,3 +74,4 @@ echo "GND >>> 6"
 echo ""
 echo "2 4 6"
 echo "1 3 5"
+
