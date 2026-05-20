@@ -9,26 +9,18 @@ echo "Installing required system packages..."
 sudo apt-get install -y \
     python3-pip \
     python3-setuptools \
-    python3-venv \
-    python3-pil \
+    python3-pillow \
     git \
     wget \
     i2c-tools
 
-# Create virtual environment if it doesn't exist
-if [ ! -d "stats_env" ]; then
-    echo "Creating Python virtual environment..."
-    python3 -m venv stats_env --system-site-packages
-fi
-
-echo "Activating virtual environment..."
-source stats_env/bin/activate
-
 echo "Upgrading pip..."
-pip3 install --upgrade pip
+python3 -m pip install --upgrade pip --break-system-packages
 
 echo "Installing Adafruit Python shell..."
-pip3 install --upgrade adafruit-python-shell
+python3 -m pip install --upgrade \
+    adafruit-python-shell \
+    --break-system-packages
 
 # Download Blinka installer script if not already downloaded
 if [ ! -f "raspi-blinka.py" ]; then
@@ -40,11 +32,11 @@ echo "Running Blinka installer..."
 printf 'n\n' | sudo -E env PATH=$PATH python3 raspi-blinka.py
 
 echo "Installing CircuitPython libraries..."
-pip3 install --upgrade adafruit_blinka
-pip3 install adafruit-circuitpython-ssd1306
-
-echo "Installing netifaces"
-pip3 install netifaces
+python3 -m pip install --upgrade \
+    adafruit_blinka \
+    adafruit-circuitpython-ssd1306 \
+    netifaces \
+    --break-system-packages
 
 echo "Checking for OLED display on I2C bus..."
 sudo i2cdetect -y 1
@@ -53,8 +45,8 @@ echo ""
 echo "If you do NOT see address 3c:"
 echo "Run: sudo raspi-config"
 echo "Then enable (I2C):"
-echo "3 Interface Options -> I5 I2C -> Yes"
-echo "Check the OLED screen connection to screen"
+echo "Interface Options -> I2C -> Yes"
+echo "Check the OLED screen connection"
 
 echo ""
 echo "Setup complete."
