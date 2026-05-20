@@ -44,6 +44,7 @@ python3 -m pip install --upgrade \
     git clone https://github.com/rubedo47/oled-ip-display-for-rpi
 
 #runs the ip.py automatically
+cd oled-ip-display-for-rpi
 python3 ip.py
 
 echo "Checking for OLED display on I2C bus..."
