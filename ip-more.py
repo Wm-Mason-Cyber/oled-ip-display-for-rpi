@@ -73,10 +73,9 @@ while True:
 
     # Draw text
     draw.text((0, 0), "Raspberry Pi", font=font, fill=255)
-    draw.text((0, 12), f"Host: {hostname}", font=font, fill=255)
-    draw.text((0, 24), f"IP: {ip}", font=font, fill=255)
-    draw.text((0, 36), f"CPU: {cpu_temp}", font=font, fill=255)
-    draw.text((0, 48), f"RAM: {mem_usage}", font=font, fill=255)
+    draw.text((0, 16), f"Host: {hostname}", font=font, fill=255)
+    draw.text((0, 28), f"IP: {ip}", font=font, fill=255)
+    draw.text((0, 40), f"TEMP: {cpu_temp}  RAM: {mem_usage}", font=font, fill=255)
 
     # Display image
     oled.image(image)
