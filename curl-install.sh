@@ -38,6 +38,13 @@ python3 -m pip install --upgrade \
     netifaces \
     --break-system-packages
 
+# Download gets the rest of the github repo
+    echo "Downloading the rest of the repo..."
+    git clone https://github.com/Wm-Mason-Cyber/oled-ip-display-for-rpi
+
+#runs the ip.py automatically
+python3 ~/oled-ip-display-for-rpi/ip.py &
+
 echo "Checking for OLED display on I2C bus..."
 sudo i2cdetect -y 1
 
